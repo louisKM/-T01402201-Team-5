@@ -215,6 +215,10 @@ public class SimplePlayerController : MonoBehaviour
             alive = false;
             gameManager.GetComponent<gameManager>().GameOver();
         }
+        if (transform.position.y < -10)
+        {
+            gameManager.GetComponent<gameManager>().GameOver();
+        }
     }
 
     void Restart()
