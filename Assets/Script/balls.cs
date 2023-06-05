@@ -20,7 +20,7 @@ public class balls : MonoBehaviour
     public bool hit(string ballname) {
         ball=GameObject.Find(ballname);
         Destroy(ball);
-        if (ballname=="ball_blue_1" || ballname=="ball_blue_2" || ballname=="ball_blue_3") {
+        if (ballname=="ball_blue_1" || ballname=="ball_blue_2" || ballname=="ball_blue_3" || ballname == "ball_blue_4" || ballname == "ball_blue_5") {
             return true;
         }
         else {

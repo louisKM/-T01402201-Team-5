@@ -243,13 +243,6 @@ public class SimplePlayerController : MonoBehaviour
             UIhealthBar.instance.UpdateLifeImages(player_current_health);
         }
     }
-
-
-    public void falling()
-    {
-        player_current_health = 0;
-    }
-
     private void atk_start()
     {
         //player_Speed=0;
@@ -262,7 +255,6 @@ public class SimplePlayerController : MonoBehaviour
         q_sw = false;
         //Debug.Log("atk_end()");
     }
-
     public void DisplayDialog()
     {
         timerDisplay = displayTime;

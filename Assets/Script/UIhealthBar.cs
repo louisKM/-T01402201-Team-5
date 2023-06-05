@@ -8,7 +8,7 @@ public class UIhealthBar : MonoBehaviour
 
     public static UIhealthBar instance { get; private set; }
     
-        public Image[] lifeImage;
+    public Image[] lifeImage;
 
     void Awake()
     {
