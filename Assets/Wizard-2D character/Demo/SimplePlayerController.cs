@@ -161,6 +161,7 @@ public class SimplePlayerController : MonoBehaviour
                         if (judge_ball.hit(obj_N))
                         {
                             curse_count = curse_count - 1;
+                            UIcurse.instance.UpdateBallImages(curse_count);
                             if (curse_count == 0)
                             {
                                 DisplayDialog();
