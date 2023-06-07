@@ -44,12 +44,25 @@ public class missile : MonoBehaviour
 
         if (controller != null)
         {
-            controller.ChangeHealth(-1);
             reset_position();
+            keyboard.Instance.StartPattern((res) => cb_changeHealth(controller, res));// 키보드 패턴 시작
         }
     }
 
     public void reset_position() {
         position=first_position;
     }
+
+    void cb_changeHealth(SimplePlayerController controller, e_KeyBord_State result)
+    {
+        if (controller == null)
+            return;
+
+        if (result == e_KeyBord_State.FAIL)
+        {
+            controller.ChangeHealth(-1);
+        }
+        keyboard.Instance.StopPattern();
+    }
+
 }
