@@ -13,12 +13,10 @@ public class Preuna : MonoBehaviour
     private float fillAmount = 0f;
     private float fillSpeed = 0.09f;
     private float decreaseSpeed = 0.05f;
-    public GameOver gameOverScene;
     public Slider slider;
-    public List<SpriteRenderer> backgroundImages;
+    public SpriteRenderer[] backgroundImages = new SpriteRenderer[3];
     public GameObject fillArea;
     public GameObject spriteToDisable;
-    //public GameObject gameOverScreen;
     private float prevTime;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,7 +44,7 @@ public class Preuna : MonoBehaviour
 
     private void StartFadeIn()
     {
-        if (currentIndex >= backgroundImages.Count)
+        if (currentIndex >= backgroundImages.Length)
         {
             if(fillAmount >= 1f)
             {
@@ -112,7 +110,7 @@ public class Preuna : MonoBehaviour
                 fillAmount = Mathf.Clamp01(fillAmount);
                 UpdateSlider();
 
-                if(currentIndex < backgroundImages.Count -1)
+                if(currentIndex < backgroundImages.Length -1)
                 {
                     if(currentIndex == 0 || currentIndex == 1)
                     {
@@ -122,7 +120,7 @@ public class Preuna : MonoBehaviour
                         }
                     }
                 }
-                else if(currentIndex == backgroundImages.Count -1)
+                else if(currentIndex == backgroundImages.Length -1)
                 {
                     if(fillAmount >= 1f)
                     {
