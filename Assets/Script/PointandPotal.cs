@@ -30,14 +30,14 @@ public class PointandPotal : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.CompareTag("Player") && Input.GetKey(KeyCode.G) && this.gameObject.name == "s2_potal") {
+        if (collision.CompareTag("Player") && Input.GetKey(KeyCode.C) && this.gameObject.name == "s2_potal") {
             if(SimplePlayerController.GetComponent<SimplePlayerController>().curse_count==0) {
                 SceneManager.LoadScene("gameClear");
             } else {
                 SceneManager.LoadScene("GameOver");
             }
         }
-        else if(collision.CompareTag("Player") && Input.GetKey(KeyCode.G)) {
+        else if(collision.CompareTag("Player") && Input.GetKey(KeyCode.C)) {
             StartCoroutine( TeleportRoutine() );
             SimplePlayerController.GetComponent<SimplePlayerController>().g_sw=true;
             //Debug.Log("keydown");

@@ -85,7 +85,7 @@ public class SimplePlayerController : MonoBehaviour
         anim.SetBool("isRun", false);
 
 
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             direction = -1;
             moveVelocity = Vector3.left;
@@ -95,7 +95,7 @@ public class SimplePlayerController : MonoBehaviour
                 anim.SetBool("isRun", true);
 
         }
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             direction = 1;
             moveVelocity = Vector3.right;
@@ -105,12 +105,16 @@ public class SimplePlayerController : MonoBehaviour
                 anim.SetBool("isRun", true);
 
         }
+        else
+        {
+            anim.SetBool("isRun", false);
+        }
         transform.position += moveVelocity * movePower * Time.deltaTime;
     }
 
     void Jump()
     {
-        if ((Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0)
+        if ((Input.GetKey(KeyCode.X))
         && !anim.GetBool("isJump"))
         {
             isJumping = true;
@@ -139,7 +143,7 @@ public class SimplePlayerController : MonoBehaviour
     }
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             anim.SetTrigger("attack");
             RaycastHit2D obj_hit = Physics2D.Raycast(rb.position + Vector2.up * 0.2f, lookDirection, 2.0f, LayerMask.GetMask("react_q_obj"));
@@ -208,7 +212,7 @@ public class SimplePlayerController : MonoBehaviour
                 rb.AddForce(new Vector2(5f, 1f), ForceMode2D.Impulse);
         }
     }
-    void Die()
+    public void Die()
     {
         if (player_current_health <= 0)
         {

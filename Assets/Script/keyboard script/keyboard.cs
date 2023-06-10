@@ -22,7 +22,7 @@ public class keyboard : MonoBehaviour
     private key[] keys;
 
     // 키 랜덤 풀
-    List<KeyCode> keyCodePool = new List<KeyCode>() { KeyCode.A,KeyCode.D,KeyCode.E,KeyCode.Q,KeyCode.S,KeyCode.W};
+    List<KeyCode> keyCodePool = new List<KeyCode>() { KeyCode.A,KeyCode.D,KeyCode.E,KeyCode.S, KeyCode.Q, KeyCode.W};
 
     // 현재 키 입력 순서
     private int idx;
