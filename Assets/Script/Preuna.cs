@@ -12,7 +12,6 @@ public class Preuna : MonoBehaviour
     private int currentIndex = 0;
     private float fillAmount = 0f;
     private float fillSpeed = 0.09f;
-    private float decreaseSpeed = 0.05f;
     public Slider slider;
     public SpriteRenderer[] backgroundImages = new SpriteRenderer[3];
     public GameObject fillArea;

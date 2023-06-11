@@ -12,13 +12,10 @@ public class SimplePlayerController : MonoBehaviour
     private int direction = 1;
     bool isJumping = false;
     private bool alive = true;
-
     public int player_max_health = 3;
     public int player_current_health;
     public int curse_count = 3;
-    bool q_sw = false; 
     public bool g_sw = false; 
-    bool w_sw = false;
     Vector3 player_first_position = new Vector3(-15, -1, 0);
     Vector2 lookDirection = new Vector2(1, 0);
     int int_look_Direction = 1;
@@ -26,14 +23,8 @@ public class SimplePlayerController : MonoBehaviour
     string obj_tag;
     Vector2 w_middle_position; //꼭지점
     Vector2 w_last_position; //w키 입력 이후 이동될 목표지점 좌표
-    int w_para = 0;
     float jump_height = 2.0f; //점프 높이
     float jump_weith = 5.0f; //점프거리
-    float w_cooltime = 0.8f; //w쿨타임
-    float w_timer = 0.0f; //w쿨타임 타이머
-    float g_cooltime = 3.0f; //g쿨타임
-    float g_timer = 0.0f; //g쿨타임 타이머
-    bool w_cool_sw = false; //w 쿨 스위치
     public Vector2 player_pos;
 
     //저주해제
@@ -123,12 +114,7 @@ public class SimplePlayerController : MonoBehaviour
             w_last_position.y = player_pos.y;
             w_middle_position.x = player_pos.x + ((jump_weith * int_look_Direction) / 2); 
             w_middle_position.y = player_pos.y + jump_height;
-            w_sw = true;
-            w_para = 1;
-            w_timer = w_cooltime; 
-            w_cool_sw = true;
-
-        }
+         }
         if (!isJumping)
         {
             return;
@@ -247,18 +233,6 @@ public class SimplePlayerController : MonoBehaviour
             player_current_health = Mathf.Clamp(player_current_health + amount, 0, player_max_health);
             UIhealthBar.instance.UpdateLifeImages(player_current_health);
         }
-    }
-    private void atk_start()
-    {
-        //player_Speed=0;
-        q_sw = true;
-        // Debug.Log("atk_start()");
-    }
-
-    private void atk_end()
-    {
-        q_sw = false;
-        //Debug.Log("atk_end()");
     }
     public void DisplayDialog()
     {
